@@ -1,0 +1,5 @@
+2026-04-21 14:08:49
+Phone: 0760411535
+SMS Phone: 94760411535
+Result: {"success":false,"response":{"stt":"error","msg":"SMS sending failed!","data":""}}
+---

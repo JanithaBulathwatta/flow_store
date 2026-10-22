@@ -1,0 +1,1113 @@
+
+    <div class="page">
+        <div class="main-content app-content">
+            <div class="container-fluid">
+
+                <style>
+                .wf-bar{display:flex;align-items:center;gap:0;overflow:hidden;border-radius:20px;}
+                .wf-s{padding:.28rem .9rem;font-size:.72rem;font-weight:600;background:#f1f5f9;color:#94a3b8;white-space:nowrap;display:flex;align-items:center;gap:.3rem;}
+                .wf-s.done{background:#dcfce7;color:#166534;}
+                .wf-s.active{background:#405189;color:#fff;}
+                .wf-s:first-child{border-radius:20px 0 0 20px;}
+                .wf-s:last-child{border-radius:0 20px 20px 0;}
+                .kc{border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;border:1px solid transparent;position:relative;overflow:hidden;}
+                .kc .ki{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+                .kc .kv{font-size:1.3rem;font-weight:700;line-height:1;margin-bottom:2px;}
+                .kc .kl{font-size:.71rem;color:#64748b;font-weight:500;}
+                .kc .ks{font-size:.67rem;color:#94a3b8;margin-top:1px;}
+                .kc .kbg{position:absolute;right:-8px;bottom:-8px;width:56px;height:56px;border-radius:50%;opacity:.06;}
+                .fbar{background:#fff;border:1px solid #e9ecef;border-radius:10px;padding:.825rem 1.1rem;}
+                .fbar label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8;margin-bottom:.25rem;}
+                .sc-tbl{width:100%;border-collapse:separate;border-spacing:0;}
+                .sc-tbl thead th{background:#f8f9fb;font-size:.7rem;text-transform:uppercase;letter-spacing:.055em;color:#64748b;white-space:nowrap;padding:.6rem .875rem;border-bottom:2px solid #e9ecef;position:sticky;top:0;z-index:4;}
+                .sc-tbl td{padding:.52rem .875rem;border-bottom:1px solid #f1f5f9;vertical-align:middle;font-size:.8125rem;}
+                .sc-tbl tbody tr:hover td{background:#f8faff;}
+                .sc-tbl tbody tr.variance-pos td{background:#f0fdf4;}
+                .sc-tbl tbody tr.variance-pos td:first-child{border-left:3px solid #22c55e;}
+                .sc-tbl tbody tr.variance-neg td{background:#fff5f5;}
+                .sc-tbl tbody tr.variance-neg td:first-child{border-left:3px solid #ef4444;}
+                .batch-header-row td{background:#f0f4ff !important;border-bottom:2px solid #405189 !important;}
+                .prod-n{font-weight:600;font-size:.8125rem;color:#1e293b;line-height:1.2;}
+                .prod-s{font-size:.7rem;color:#94a3b8;margin-top:1px;}
+                .prod-b{display:inline-flex;align-items:center;gap:2px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:4px;padding:0 6px;font-size:.68rem;font-weight:700;color:#1e40af;}
+                .prod-exp{display:inline-flex;align-items:center;gap:2px;background:#fef3c7;border:1px solid #fde68a;border-radius:4px;padding:0 6px;font-size:.67rem;font-weight:600;color:#92400e;}
+                .prod-exp.expired{background:#fee2e2;border-color:#fca5a5;color:#991b1b;}
+                .cat-tag{display:inline-block;background:#f1f5f9;border-radius:4px;padding:0 6px;font-size:.68rem;font-weight:600;color:#475569;}
+                .sys-qty{font-weight:700;font-size:.9rem;color:#405189;}
+                .new-qty-input{width:85px;text-align:center;font-weight:700;font-size:.875rem;border:1.5px solid #e2e8f0;border-radius:7px;padding:.3rem .4rem;background:#fff;}
+                .new-qty-input:focus{outline:none;border-color:#405189;background:#eff6ff;}
+                .new-qty-input.pos-var{border-color:#22c55e;background:#f0fdf4;}
+                .new-qty-input.neg-var{border-color:#ef4444;background:#fff5f5;}
+                .var-pos{color:#16a34a;font-weight:700;}
+                .var-neg{color:#dc2626;font-weight:700;}
+                .var-zero{color:#94a3b8;}
+                .sc-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 9px;border-radius:20px;font-size:.69rem;font-weight:600;white-space:nowrap;}
+                .scc-ok{background:#dcfce7;color:#166534;}
+                .tbl-toolbar{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:.6rem .875rem;background:#f8f9fb;border-bottom:1px solid #e9ecef;}
+                .submit-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid #e9ecef;padding:.875rem 1.5rem;z-index:50;border-radius:0 0 12px 12px;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}
+                .tbl-scroll{overflow-x:auto;}
+                .empty-sc{text-align:center;padding:4rem 1rem;color:#94a3b8;}
+                .empty-sc i{font-size:2.8rem;display:block;margin-bottom:.625rem;}
+                #__tb{position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:7px;}
+                .t-itm{padding:10px 16px;border-radius:8px;font-size:13px;font-weight:500;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;transform:translateY(5px);transition:all .22s;max-width:290px;}
+                .pg-inf{font-size:.78rem;color:#64748b;}
+                .af-chip{display:inline-flex;align-items:center;gap:3px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:2px 9px;font-size:.71rem;font-weight:500;color:#1e40af;}
+                .af-chip .rm{cursor:pointer;opacity:.55;}
+                .af-chip .rm:hover{opacity:1;}
+                @media print{.main-sidebar,.app-header,.fbar,.tbl-toolbar,.submit-bar,.kc{display:none!important;}}
+                @media(max-width:768px){.hide-mob{display:none!important;}}
+                </style>
+
+                <!-- PAGE HEADER -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div>
+                         
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <h1 class="page-title fw-semibold fs-18 mb-0">Physical Stock Count</h1>
+                            <span style="background:#eff6ff;color:#1e40af;border:1.5px solid #bfdbfe;border-radius:8px;padding:.22rem .9rem;font-family:monospace;font-size:.875rem;font-weight:700;" id="adjNoDisplay">ADJ-2026-0042</span>
+                            <span class="sc-chip scc-ok" id="statusChip"><i class="ri-edit-line me-1"></i>Draft</span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 align-items-center flex-wrap mt-md-0 mt-2">
+                         
+                            
+                        <div class="dropdown">
+                                
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item fs-13" href="#" onclick="doExport('excel')"><i class="ri-file-excel-line me-2 text-success"></i>Excel</a></li>
+                                <li><a class="dropdown-item fs-13" href="#" onclick="doExport('pdf')"><i class="ri-file-pdf-line me-2 text-danger"></i>PDF</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI STRIP -->
+                <div class="row g-3 mb-3" id="kpiRow"></div>
+
+                <!-- FILTER BAR -->
+                <div class="fbar mb-3">
+                    <div class="row g-2 align-items-end">
+                        <div class="col-sm-6 col-md-3 col-xl-2">
+                            <label>Search</label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white"><i class="ri-search-line text-muted"></i></span>
+                                <input type="text" class="form-control border-start-0" id="fSearch" placeholder="Product / SKU / batch…">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xl-2">
+                            <label>Warehouse</label>
+                            <select class="form-select form-select-sm" id="fWh">
+                                <option value="">All Warehouses</option>
+                                <?php if (isset($warehouses) && !empty($warehouses)): ?>
+                                    <?php foreach($warehouses as $wh): ?>
+                                        <option value="<?php echo $wh->store_id; ?>"><?php echo $wh->store_name; ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xl-2">
+                            <label>Category</label>
+                            <select class="form-select form-select-sm" id="fCategory">
+                                <option value="">All Categories</option>
+                                <?php foreach($categories as $cat): ?>
+                                    <option value="<?php echo $cat['id']; ?>"><?php echo $cat['category']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xl-2">
+                            <label>Brand</label>
+                            <select class="form-select form-select-sm" id="fBrand">
+                                <option value="">All Brands</option>
+                                <?php foreach($brands as $b): ?>
+                                    <option value="<?php echo $b['id']; ?>"><?php echo $b['brand']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xl-2">
+                            <label>Show</label>
+                            <select class="form-select form-select-sm" id="fShow">
+                                <option value="all">All Products</option>
+                                <option value="counted">Counted Only</option>
+                                <option value="uncounted">Uncounted Only</option>
+                                <option value="variance">With Variance</option>
+                                <option value="pos">Positive Variance</option>
+                                <option value="neg">Negative Variance</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xl-2">
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-primary btn-sm flex-fill" onclick="applyFilters()"><i class="ri-filter-line me-1"></i>Apply</button>
+                                <button type="button" class="btn btn-light btn-sm" onclick="resetFilters()"><i class="ri-refresh-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="activeChips" class="d-flex gap-2 flex-wrap mt-2"></div>
+                </div>
+
+                <!-- TABLE CARD -->
+                <div class="card custom-card">
+                    <div class="tbl-toolbar">
+                        <span class="fw-semibold fs-13 text-dark me-auto">
+                            <i class="ri-clipboard-line me-2 text-primary"></i>Stock Count Sheet
+                            <span class="badge bg-primary-transparent text-primary ms-2 fs-11" id="rowCountBadge">0 lines</span>
+                        </span>
+                        <button class="btn btn-sm btn-warning-light" onclick="clearAllCounts()"><i class="ri-eraser-line me-1"></i>Clear Counts</button>
+                        <button class="btn btn-sm btn-light" onclick="refreshTable()"><i class="ri-refresh-line"></i></button>
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div class="tbl-scroll">
+                            <table class="sc-tbl w-100" id="scTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width:28px;"><input type="checkbox" class="form-check-input" id="chkAll" onchange="toggleAll(this)"></th>
+                                        <th>Product</th>
+                                        <th class="hide-mob">Category / Brand</th>
+                                        <th class="hide-mob">Warehouse</th>
+                                        <th>Batch</th>
+                                        <th class="hide-mob">Expiry</th>
+                                        <th class="text-center">System Qty</th>
+                                        <th class="text-center" style="min-width:110px;">Counted Qty</th>
+                                        <th class="text-center">Unit Cost</th>
+										<th class="text-center">Variance /<br> Value Impact</th>
+                                        
+                                         
+                                        <th>Status</th>
+                                     </tr>
+                                </thead>
+                                <tbody id="scTbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card-footer d-flex align-items-center justify-content-between flex-wrap gap-2 py-2">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="pg-inf" id="pgInfo">Showing 0 of 0</span>
+                            <select class="form-select form-select-sm" id="pgSize" style="width:78px;" onchange="onPgSize()">
+                                <option value="20">20</option>
+                                <option value="50" selected>50</option>
+                                <option value="100">100</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                        <nav><ul class="pagination pagination-sm mb-0" id="pagination"></ul></nav>
+                    </div>
+
+                    <div class="submit-bar" id="submitBar">
+                        <div class="d-flex align-items-center gap-2 me-auto flex-wrap">
+                            <span class="fw-semibold fs-12 text-muted"><i class="ri-bar-chart-line me-1 text-primary"></i>Count Progress:</span>
+                            <div style="width:140px;height:8px;background:#e9ecef;border-radius:4px;overflow:hidden;">
+                                <div id="progressBar" style="height:100%;background:linear-gradient(90deg,#405189,#6172b0);width:0%;"></div>
+                            </div>
+                            <span class="fw-semibold fs-12 text-primary" id="progressText">0 / 0 counted</span>
+                            <span class="text-muted fs-12">|</span>
+                            <span class="fw-semibold fs-12 text-success" id="posVarCount">+0 pos</span>
+                            <span class="fw-semibold fs-12 text-danger" id="negVarCount">−0 neg</span>
+                        </div>
+                        <button class="btn btn-light btn-sm" onclick="saveDraft()"><i class="ri-save-line me-1"></i>Save Draft</button>
+                        <button class="btn btn-primary btn-sm" id="btnSubmit" onclick="openSubmitModal()"><i class="ri-send-plane-line me-1"></i>Submit</button>
+                        <button class="btn btn-success btn-sm d-none" id="btnApprove" onclick="openApproveModal()"><i class="ri-checkbox-circle-line me-1"></i>Approve</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════ MODALS ════════════════════════ -->
+
+<!-- Submit Modal -->
+<div class="modal fade" id="submitModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title fw-semibold"><i class="ri-send-plane-line me-2 text-primary"></i>Submit Stock Count for Approval</h6>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-primary-transparent py-2 fs-12 mb-3">
+          <i class="ri-information-line me-1"></i>Review the variance summary below. Stock will only update after <strong>manager approval</strong>.
+        </div>
+        <!-- Variance summary table -->
+        <div class="table-responsive mb-3">
+          <table class="table table-sm fs-12 mb-0" id="submitSummaryTable">
+            <thead class="table-light">
+              <tr>
+                <th>Product</th>
+                <th>Batch</th>
+                <th>Warehouse</th>
+                <th class="text-center">System</th>
+                <th class="text-center">Counted</th>
+                <th class="text-center">Variance</th>
+                <th class="text-center">Value Impact</th>
+              </tr>
+            </thead>
+            <tbody id="submitSummaryBody"></tbody>
+          </table>
+        </div>
+        <!-- Note field -->
+        <div class="mb-0">
+          <label class="form-label fw-semibold fs-13">Count Notes / Remarks <span class="text-danger">*</span></label>
+          <textarea class="form-control" rows="4" id="submitNote" placeholder="Describe the physical count process, any discrepancies found, conditions noted, who performed the count, and date/time of the physical count…"></textarea>
+          <div class="fs-11 text-muted mt-1">This note is required and will be visible to the approving manager.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-light btn-sm" data-bs-dismiss="modal">Go Back &amp; Continue Counting</button>
+        <button class="btn btn-primary btn-sm" onclick="confirmSubmit()" data-bs-dismiss="modal">
+          <i class="ri-send-plane-line me-1"></i>Confirm &amp; Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Approve Modal -->
+<div class="modal fade" id="approveModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h6 class="modal-title fw-semibold text-success"><i class="ri-checkbox-circle-line me-2"></i>Approve &amp; Post Stock Count</h6>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success-transparent py-2 fs-12 mb-3">
+          <i class="ri-information-line me-1"></i>This will <strong>immediately adjust warehouse stock</strong> to match the counted quantities.
+        </div>
+        <ul class="list-group list-group-flush fs-13" id="approveSummaryList"></ul>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success btn-sm" onclick="confirmApprove()" data-bs-dismiss="modal">
+          <i class="ri-checkbox-circle-line me-1"></i>Post &amp; Update Stock
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/defaultmenu.js"></script>
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+    <script src="../assets/js/sticky.js"></script>
+    <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../assets/js/custom-switcher.js"></script>
+    <script src="../assets/js/custom.js"></script>
+
+    <script>
+(function() {
+    'use strict';
+
+    var MASTER_BATCHES = {};
+    var ADJ_NO = <?php echo json_encode($adjustment_no); ?>;
+    var currentPage = 1;
+    var pageSize = 50;
+    var currentFilters = {
+        search: '',
+        warehouse: '',
+        category: '',
+        brand: '',
+        show: 'all'
+    };
+
+    document.getElementById('adjNoDisplay').textContent = ADJ_NO;
+
+    function formatCurrency(n) {
+        if(n == null || isNaN(n)) return '—';
+        var a = Math.abs(n);
+        return (n < 0 ? '-' : '') + 'LKR ' + a.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+
+    function formatDate(d) {
+        if(!d) return '—';
+        var x = new Date(d);
+        return isNaN(x) ? d : x.toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
+    }
+
+    function showToast(msg, type) {
+        var colors = {success:'#22c55e', danger:'#ef4444', warning:'#f59e0b', primary:'#405189'};
+        var b = document.getElementById('__tb');
+        if(!b) { b = document.createElement('div'); b.id = '__tb'; document.body.appendChild(b); }
+        var t = document.createElement('div');
+        t.className = 't-itm';
+        t.style.background = colors[type] || colors.primary;
+        t.innerHTML = '<i class="ri-checkbox-circle-line me-2"></i>' + msg;
+        b.appendChild(t);
+        requestAnimationFrame(function() { t.style.opacity = 1; t.style.transform = 'translateY(0)'; });
+        setTimeout(function() { t.style.opacity = 0; setTimeout(function() { t.remove(); }, 300); }, 3200);
+    }
+
+    function getVariance(product) {
+        if(product.counted === null || product.counted === '') return null;
+        return parseFloat(product.counted) - parseFloat(product.systemQty);
+    }
+
+    function updateMainProgressAndCards() {
+        var totalProducts = 0;
+        var countedProducts = 0;
+        var positiveVariance = 0;
+        var negativeVariance = 0;
+        var totalSystemValue = 0;
+        
+        for(var batchNo in MASTER_BATCHES) {
+            var batch = MASTER_BATCHES[batchNo];
+            if(batch.products) {
+                batch.products.forEach(function(product) {
+                    totalProducts++;
+                    totalSystemValue += product.systemQty * product.avg_cost;
+                    
+                    if(product.counted !== null && product.counted !== '') {
+                        countedProducts++;
+                        var v = getVariance(product);
+                        if(v > 0) positiveVariance++;
+                        if(v < 0) negativeVariance++;
+                    }
+                });
+            }
+        }
+        
+        var percentage = totalProducts ? Math.round((countedProducts / totalProducts) * 100) : 0;
+        
+        console.log('=== PROGRESS UPDATE ===');
+        console.log('Total:', totalProducts, 'Counted:', countedProducts, 'Percentage:', percentage + '%');
+        
+        var progressBar = document.getElementById('progressBar');
+        if(progressBar) progressBar.style.width = percentage + '%';
+        
+        var progressText = document.getElementById('progressText');
+        if(progressText) progressText.textContent = countedProducts + ' / ' + totalProducts + ' counted';
+        
+        var posSpan = document.getElementById('posVarCount');
+        if(posSpan) posSpan.textContent = '+' + positiveVariance + ' pos';
+        var negSpan = document.getElementById('negVarCount');
+        if(negSpan) negSpan.textContent = '−' + negativeVariance + ' neg';
+        
+        var cards = [
+            {bg: '#eff6ff', ic: '#1d4ed8', icon: 'ri-list-check-3', label: 'Total Lines', value: totalProducts, sub: countedProducts + ' counted, ' + (totalProducts - countedProducts) + ' pending'},
+            {bg: '#fef9c3', ic: '#854d0e', icon: 'ri-loader-4-line', label: 'Count Progress', value: percentage + '%', sub: countedProducts + ' / ' + totalProducts + ' lines'},
+            {bg: '#dcfce7', ic: '#166534', icon: 'ri-arrow-up-circle-line', label: 'Positive Variance', value: positiveVariance + ' lines', sub: 'Stock higher than system'},
+            {bg: '#fee2e2', ic: '#991b1b', icon: 'ri-arrow-down-circle-line', label: 'Negative Variance', value: negativeVariance + ' lines', sub: 'Stock lower than system'},
+            {bg: '#fdf4ff', ic: '#7e22ce', icon: 'ri-money-dollar-circle-line', label: 'System Stock Value', value: formatCurrency(totalSystemValue), sub: 'At avg cost'}
+        ];
+        
+        var kpiHtml = cards.map(function(c) {
+            return '<div class="col-sm-6 col-xl"><div class="card custom-card"><div class="card-body kc" style="background:' + c.bg + ';border-color:' + c.bg + ';">' +
+                '<div class="ki" style="background:rgba(255,255,255,.5);"><i class="' + c.icon + '" style="color:' + c.ic + ';font-size:1.15rem;"></i></div>' +
+                '<div><div class="kv" style="color:' + c.ic + ';">' + c.value + '</div><div class="kl">' + c.label + '</div><div class="ks">' + c.sub + '</div></div>' +
+                '<div class="kbg" style="background:' + c.ic + ';"></div>' +
+                '</div></div></div>';
+        }).join('');
+        
+        var kpiRow = document.getElementById('kpiRow');
+        if(kpiRow) kpiRow.innerHTML = kpiHtml;
+    }
+
+    function loadData() {
+        var url = '<?php echo base_url("StockAdjustment/get_stock_data_grouped"); ?>';
+        var params = [];
+        
+        if(currentFilters.warehouse) params.push('warehouse_id=' + currentFilters.warehouse);
+        if(currentFilters.category) params.push('category_id=' + currentFilters.category);
+        if(currentFilters.brand) params.push('brand_id=' + currentFilters.brand);
+        if(currentFilters.search) params.push('search=' + encodeURIComponent(currentFilters.search));
+        
+        if(params.length) url += '?' + params.join('&');
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                MASTER_BATCHES = data.batches || {};
+                
+                // DEBUG: Print all product IDs
+                console.log('=== ALL PRODUCT IDs IN MASTER_BATCHES ===');
+                var allIds = [];
+                for(var b in MASTER_BATCHES) {
+                    if(MASTER_BATCHES[b].products) {
+                        MASTER_BATCHES[b].products.forEach(function(p) {
+                            allIds.push(p.id);
+                            console.log('Product ID:', p.id, 'Name:', p.product_name);
+                        });
+                    }
+                }
+                console.log('Total products:', allIds.length);
+                console.log('All IDs:', allIds.sort(function(a,b){return a-b}));
+                
+                for(var b in MASTER_BATCHES) {
+                    if(MASTER_BATCHES[b].products) {
+                        MASTER_BATCHES[b].products.forEach(function(p) { 
+                            p.counted = null; 
+                        });
+                    }
+                }
+                
+                renderTable();
+                updateMainProgressAndCards();
+                updateStatusUI('draft');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Failed to load stock data', 'danger');
+            });
+    }
+
+    function applyFilters() {
+        currentFilters.search = document.getElementById('fSearch').value.toLowerCase().trim();
+        currentFilters.warehouse = document.getElementById('fWh').value;
+        currentFilters.category = document.getElementById('fCategory').value;
+        currentFilters.brand = document.getElementById('fBrand').value;
+        currentFilters.show = document.getElementById('fShow').value;
+        
+        renderTable();
+        
+        var chips = [];
+        if(currentFilters.search) chips.push({label: 'Search: "' + currentFilters.search + '"', key: 'search'});
+        if(currentFilters.warehouse) chips.push({label: 'Warehouse: ' + getSelectText('fWh', currentFilters.warehouse), key: 'warehouse'});
+        if(currentFilters.category) chips.push({label: 'Category: ' + getSelectText('fCategory', currentFilters.category), key: 'category'});
+        if(currentFilters.brand) chips.push({label: 'Brand: ' + getSelectText('fBrand', currentFilters.brand), key: 'brand'});
+        if(currentFilters.show && currentFilters.show !== 'all') chips.push({label: 'Show: ' + currentFilters.show, key: 'show'});
+        
+        var chipsContainer = document.getElementById('activeChips');
+        if(chipsContainer) {
+            chipsContainer.innerHTML = chips.map(function(c) {
+                return '<span class="af-chip">' + c.label + '<span class="rm ms-1" onclick="clearChip(\'' + c.key + '\')"><i class="ri-close-line"></i></span></span>';
+            }).join('');
+        }
+        
+        var totalFiltered = getFilteredProductCount();
+        if(totalFiltered > 0) showToast('Filters applied - showing ' + totalFiltered + ' items', 'primary');
+    }
+    
+    function getSelectText(selectId, value) {
+        var select = document.getElementById(selectId);
+        for(var i = 0; i < select.options.length; i++) {
+            if(select.options[i].value == value) return select.options[i].text;
+        }
+        return value;
+    }
+    
+    function getFilteredProductCount() {
+        var count = 0;
+        for(var batchNo in MASTER_BATCHES) {
+            var batch = MASTER_BATCHES[batchNo];
+            if(!shouldShowBatch(batch)) continue;
+            count += getFilteredProductsInBatch(batch).length;
+        }
+        return count;
+    }
+    
+    function shouldShowBatch(batch) {
+        if(currentFilters.warehouse && batch.warehouse_id != currentFilters.warehouse) return false;
+        return true;
+    }
+    
+    function getFilteredProductsInBatch(batch) {
+        return batch.products.filter(function(product) {
+            if(currentFilters.search && !(product.product_name.toLowerCase().includes(currentFilters.search) || 
+                (product.sku || '').toLowerCase().includes(currentFilters.search) || 
+                (batch.batch_no || '').toLowerCase().includes(currentFilters.search))) return false;
+            
+            if(currentFilters.category && product.category_id != currentFilters.category) return false;
+            if(currentFilters.brand && product.brand_id != currentFilters.brand) return false;
+            
+            var v = getVariance(product);
+            if(currentFilters.show === 'counted' && (!product.counted || product.counted === '')) return false;
+            if(currentFilters.show === 'uncounted' && product.counted && product.counted !== '') return false;
+            if(currentFilters.show === 'variance' && (v === null || v === 0)) return false;
+            if(currentFilters.show === 'pos' && (v === null || v <= 0)) return false;
+            if(currentFilters.show === 'neg' && (v === null || v >= 0)) return false;
+            
+            return true;
+        });
+    }
+
+    function renderTable() {
+        var tbody = document.getElementById('scTbody');
+        if(!tbody) return;
+        
+        var allFilteredProducts = [];
+        for(var batchNo in MASTER_BATCHES) {
+            var batch = MASTER_BATCHES[batchNo];
+            if(!shouldShowBatch(batch)) continue;
+            
+            var filteredProducts = getFilteredProductsInBatch(batch);
+            if(filteredProducts.length > 0) {
+                allFilteredProducts.push({
+                    batch: batch,
+                    products: filteredProducts
+                });
+            }
+        }
+        
+        var totalProducts = allFilteredProducts.reduce(function(sum, b) { return sum + b.products.length; }, 0);
+        
+        var size = pageSize === 'all' ? totalProducts : pageSize;
+        var start = (currentPage - 1) * size;
+        var end = Math.min(start + size, totalProducts);
+        
+        document.getElementById('rowCountBadge').textContent = totalProducts + ' lines';
+        document.getElementById('pgInfo').textContent = 'Showing ' + (totalProducts ? start + 1 : 0) + '–' + end + ' of ' + totalProducts;
+        
+        if(totalProducts === 0) {
+            tbody.innerHTML = '<tr><td colspan="11"><div class="empty-sc"><i class="ri-inbox-line"></i><p>No records match your filters.</p></div></td></tr>';
+            renderPagination(totalProducts);
+            return;
+        }
+        
+        var currentIndex = 0;
+        var html = '';
+        
+        for(var i = 0; i < allFilteredProducts.length; i++) {
+            var item = allFilteredProducts[i];
+            var batch = item.batch;
+            var batchStart = currentIndex;
+            var batchEnd = currentIndex + item.products.length;
+            
+            if(batchEnd > start && batchStart < end) {
+                var isExpired = batch.days_left !== null && batch.days_left < 0;
+                var expiringSoon = batch.days_left !== null && batch.days_left <= 30;
+                
+                /*html += '<tr class="batch-header-row">';
+                html += '<td colspan="13" style="padding:0.75rem 1rem;background:#f0f4ff;">';
+                html += '<div class="d-flex align-items-center justify-content-between flex-wrap gap-2">';
+                html += '<div class="d-flex align-items-center gap-2">';
+                html += '<i class="ri-stack-line fs-18 text-primary"></i>';
+                html += '<strong class="fs-14 text-primary">Batch: ' + (batch.batch_no || 'Unassigned') + '</strong>';
+                html += '<span class="badge bg-light text-dark ms-2">' + batch.warehouse_name + '</span>';
+                if(batch.expiry_date) {
+                    html += '<span class="badge ' + (isExpired ? 'bg-danger' : (expiringSoon ? 'bg-warning' : 'bg-info')) + '">';
+                    if(isExpired) html += '<i class="ri-close-circle-fill me-1"></i> Expired';
+                    else if(expiringSoon) html += '<i class="ri-timer-line me-1"></i> ' + batch.days_left + 'd left';
+                    else html += '<i class="ri-calendar-check-line me-1"></i> ' + formatDate(batch.expiry_date);
+                    html += '</span>';
+                }
+                html += '</div>';
+                html += '<span class="text-muted fs-11"><i class="ri-stack-line"></i> ' + item.products.length + ' products</span>';
+                html += '</div></div>';
+                html += '</td></tr>';
+				*/
+                
+                for(var j = 0; j < item.products.length; j++) {
+                    var product = item.products[j];
+                    var globalIndex = currentIndex + j;
+                    
+                    if(globalIndex >= start && globalIndex < end) {
+                        console.log('Rendering product ID:', product.id, 'Name:', product.product_name);
+                        
+                        var v = getVariance(product);
+                        var rowClass = (product.counted !== null && product.counted !== '') ? 
+                            (v > 0 ? 'variance-pos' : v < 0 ? 'variance-neg' : 'variance-zero dirty') : '';
+                        
+                        var expCell = '<span class="text-muted fs-11">—</span>';
+                        if(batch.expiry_date) {
+                            if(batch.days_left < 0) expCell = '<span class="prod-exp expired"><i class="ri-close-circle-fill me-1"></i>Expired</span>';
+                            else if(batch.days_left <= 30) expCell = '<span class="prod-exp"><i class="ri-timer-line me-1"></i>' + batch.days_left + 'd left</span>';
+                            else expCell = '<span class="text-muted fs-12">' + formatDate(batch.expiry_date) + '</span>';
+                        }
+                        
+                        var batchCell = batch.batch_no ? '<span class="prod-b">' + batch.batch_no + '</span>' : '<span class="text-muted fs-11">-</span>';
+                        
+                        var statusChip = {
+                            uncounted: '<span class="sc-chip" style="background:#f1f5f9;color:#64748b;"><i class="ri-time-line me-1"></i>Pending</span>',
+                            match: '<span class="sc-chip scc-ok"><i class="ri-checkbox-circle-fill me-1"></i>Match</span>',
+                            pos: '<span class="sc-chip scc-ok" style="background:#dcfce7;color:#166534;"><i class="ri-arrow-up-circle-fill me-1"></i>+Variance</span>',
+                            neg: '<span class="sc-chip" style="background:#fee2e2;color:#991b1b;"><i class="ri-arrow-down-circle-fill me-1"></i>−Variance</span>'
+                        }[v === null ? 'uncounted' : (v === 0 ? 'match' : (v > 0 ? 'pos' : 'neg'))];
+                        
+                        var varianceHtml = '<span class="var-empty">—</span>';
+                        if(v !== null) {
+                            if(v === 0) varianceHtml = '<span class="var-zero">0</span>';
+                            else if(v > 0) varianceHtml = '<span class="var-pos">+' + v + '</span>';
+                            else varianceHtml = '<span class="var-neg">' + v + '</span>';
+                        }
+                        
+                        var valueImpact = (v !== null && v !== 0) ? formatCurrency(v * product.avg_cost) : '<span class="text-muted">—</span>';
+                        var inputClass = 'new-qty-input';
+                        if(product.counted !== null && product.counted !== '') {
+                            inputClass += v > 0 ? ' pos-var' : (v < 0 ? ' neg-var' : ' zero-var');
+                        }
+                        
+                        html += '<tr class="' + rowClass + '" data-id="' + product.id + '">';
+                        html += '<td><input type="checkbox" class="form-check-input row-chk" data-id="' + product.id + '"></td>';
+                        html += '<td><div class="prod-n">' + product.product_name + '</div><div class="prod-s">' + (product.sku || 'N/A') + '</div></td>';
+                        //html += '<td class="hide-mob text-muted fs-12">' + (product.category || '—') + '</td>';
+                        //html += '<td class="hide-mob text-muted fs-12">' + (product.brand_name || '—') + '</td>';
+                        html += '<td class="hide-mob text-muted fs-12">' + (product.category || '—') + ' / ' + (product.brand_name || '—') + '</td>';
+						html += '<td class="hide-mob text-muted fs-12">' + batch.warehouse_name + '</td>';
+                        html += '<td>' + batchCell + '</td>';
+                        html += '<td class="hide-mob">' + expCell + '</td>';
+                        html += '<td class="text-center"><span class="sys-qty fw-normal">' + product.systemQty + '</span> pcs</td>';
+                        html += '<td class="text-center"><input type="number" class="' + inputClass + '" min="0" step="1" value="' + (product.counted !== null ? product.counted : '') + '" placeholder="—" data-id="' + product.id + '" data-system-qty="' + product.systemQty + '" data-avg-cost="' + product.avg_cost + '" oninput="handleCountInput(this)"></td>';
+                        // Combined variance and value impact in ONE cell
+var combinedHtml = '';
+if(v !== null) {
+    if(v === 0) {
+        combinedHtml = '<div><span class="var-zero">0</span></div><div class="fs-11 text-muted mt-1">No impact</div>';
+    } else {
+        var impactValue = v * product.avg_cost;
+        var sign = v > 0 ? '+' : '';
+        combinedHtml = '<div><span class="' + (v > 0 ? 'var-pos' : 'var-neg') + '">' + sign + v + ' units</span></div>' +
+                      '<div class="fs-11 ' + (v > 0 ? 'text-success' : 'text-danger') + ' mt-1">' + 
+                      (v > 0 ? '↑' : '↓') + ' ' + formatCurrency(Math.abs(impactValue)) + '</div>';
+    }
+} else {
+    combinedHtml = '<span class="text-muted">—</span>';
+}
+
+html += '<td class="text-center text-muted fs-12">' + formatCurrency(product.avg_cost) + '</td>';
+html += '<td class="text-center">' + combinedHtml + '</td>';
+html += '<td>' + statusChip + '</td>';
+                    }
+                }
+            }
+            currentIndex += item.products.length;
+        }
+        
+        tbody.innerHTML = html;
+        renderPagination(totalProducts);
+    }
+    
+    window.handleCountInput = function(inputElement) {
+    console.log('=== handleCountInput CALLED ===');
+    var productId = parseInt(inputElement.getAttribute('data-id'));
+    var newValue = inputElement.value.trim();
+    var systemQty = parseFloat(inputElement.getAttribute('data-system-qty')) || 0;
+    var avgCost = parseFloat(inputElement.getAttribute('data-avg-cost')) || 0;
+    var countedValue = (newValue === '') ? null : parseFloat(newValue);
+    
+    console.log('Product ID:', productId, 'New Value:', countedValue);
+    
+    var found = false;
+    
+    for(var batchNo in MASTER_BATCHES) {
+        var batch = MASTER_BATCHES[batchNo];
+        if(batch.products) {
+            for(var i = 0; i < batch.products.length; i++) {
+                var product = batch.products[i];
+                if(product.id == productId) {
+                    product.counted = countedValue;
+                    found = true;
+                    console.log('✅ UPDATED! Product:', product.product_name, 'Counted:', countedValue);
+                    break;
+                }
+            }
+            if(found) break;
+        }
+    }
+    
+    if(!found) {
+        console.error('❌ Product NOT FOUND! ID:', productId);
+        return;
+    }
+    
+    var v = (countedValue !== null) ? countedValue - systemQty : null;
+    
+    // Update input styling
+    inputElement.className = 'new-qty-input';
+    if(countedValue !== null) {
+        if(v > 0) inputElement.className += ' pos-var';
+        else if(v < 0) inputElement.className += ' neg-var';
+        else inputElement.className += ' zero-var';
+    }
+    
+    var row = inputElement.closest('tr');
+    if(row) {
+        // Update row class
+        if(countedValue !== null) {
+            if(v > 0) row.className = 'variance-pos';
+            else if(v < 0) row.className = 'variance-neg';
+            else row.className = 'variance-zero dirty';
+        } else {
+            row.className = '';
+        }
+        
+        // Get all cells
+        var cells = row.querySelectorAll('td');
+        
+        // Column indices (0-based):
+        // 0: checkbox
+        // 1: product name/SKU
+        // 2: category/brand
+        // 3: warehouse
+        // 4: batch
+        // 5: expiry
+        // 6: system qty (text-center)
+        // 7: counted qty (input field - this is where we are)
+        // 8: unit cost column  
+        // 9: variance/value impact column  
+        // 10: status column
+        
+        // Update variance column (index 8)
+        // Update combined variance/value impact column (index 8)
+if(cells[8]) {
+    cells[8].innerHTML = '<span class="text-muted fs-12">' + formatCurrency(avgCost) + '</span>';
+}
+
+// Update combined variance/value impact column (index 9) - NOW SECOND
+if(cells[9]) {
+    if(v === null) {
+        cells[9].innerHTML = '<span class="text-muted">—</span>';
+    } else if(v === 0) {
+        cells[9].innerHTML = '<div><span class="var-zero">0</span></div><div class="fs-11 text-muted mt-1">No impact</div>';
+    } else {
+        var impactValue = v * avgCost;
+        var sign = v > 0 ? '+' : '';
+        var arrow = v > 0 ? '↑' : '↓';
+        var colorClass = v > 0 ? 'text-success' : 'text-danger';
+        cells[9].innerHTML = '<div><span class="' + (v > 0 ? 'var-pos' : 'var-neg') + '">' + sign + v + ' units</span></div>' +
+                           '<div class="fs-11 ' + colorClass + ' mt-1">' + arrow + ' ' + formatCurrency(Math.abs(impactValue)) + '</div>';
+    }
+}
+
+// Update status column (index 10) - NOT 11 anymore!
+if(cells[10]) {
+    var status = (countedValue === null) ? 'uncounted' : (v === 0 ? 'match' : (v > 0 ? 'pos' : 'neg'));
+    var statusHtml = {
+        uncounted: '<span class="sc-chip" style="background:#f1f5f9;color:#64748b;"><i class="ri-time-line me-1"></i>Pending</span>',
+        match: '<span class="sc-chip scc-ok"><i class="ri-checkbox-circle-fill me-1"></i>Match</span>',
+        pos: '<span class="sc-chip scc-ok" style="background:#dcfce7;color:#166534;"><i class="ri-arrow-up-circle-fill me-1"></i>+Variance</span>',
+        neg: '<span class="sc-chip" style="background:#fee2e2;color:#991b1b;"><i class="ri-arrow-down-circle-fill me-1"></i>−Variance</span>'
+    }[status];
+    cells[10].innerHTML = statusHtml;
+}
+    }
+    
+    updateMainProgressAndCards();
+    
+    fetch('<?php echo base_url("StockAdjustment/save_count"); ?>', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id=' + productId + '&counted_qty=' + (newValue || '')
+    }).catch(error => console.error('Save error:', error));
+};
+    
+    function renderPagination(total) {
+        var pg = document.getElementById('pagination');
+        if(!pg) return;
+        var size = pageSize === 'all' ? total : pageSize;
+        var pages = Math.ceil(total / size);
+        if(pages <= 1) { pg.innerHTML = ''; return; }
+        var h = '<li class="page-item ' + (currentPage === 1 ? 'disabled' : '') + '"><a class="page-link" href="#" onclick="goToPage(' + (currentPage-1) + ');return false;">&laquo;</a></li>';
+        for(var i = 1; i <= pages; i++) {
+            if(i === 1 || i === pages || Math.abs(i - currentPage) <= 1)
+                h += '<li class="page-item ' + (i === currentPage ? 'active' : '') + '"><a class="page-link" href="#" onclick="goToPage(' + i + ');return false;">' + i + '</a></li>';
+            else if(Math.abs(i - currentPage) === 2)
+                h += '<li class="page-item disabled"><a class="page-link">…</a></li>';
+        }
+        h += '<li class="page-item ' + (currentPage === pages ? 'disabled' : '') + '"><a class="page-link" href="#" onclick="goToPage(' + (currentPage+1) + ');return false;">&raquo;</a></li>';
+        pg.innerHTML = h;
+    }
+    
+    window.goToPage = function(p) {
+        var total = getFilteredProductCount();
+        var size = pageSize === 'all' ? total : pageSize;
+        var pages = Math.ceil(total / size);
+        if(p < 1 || p > pages) return;
+        currentPage = p;
+        renderTable();
+    };
+    
+    window.onPgSize = function() {
+        var v = document.getElementById('pgSize').value;
+        pageSize = v === 'all' ? 'all' : parseInt(v);
+        currentPage = 1;
+        renderTable();
+    };
+    
+    window.applyFilters = function() {
+        applyFilters();
+        currentPage = 1;
+        renderTable();
+        updateMainProgressAndCards();
+    };
+    
+    window.resetFilters = function() {
+        document.getElementById('fSearch').value = '';
+        document.getElementById('fWh').value = '';
+        document.getElementById('fCategory').value = '';
+        document.getElementById('fBrand').value = '';
+        document.getElementById('fShow').value = 'all';
+        applyFilters();
+        currentPage = 1;
+        renderTable();
+        updateMainProgressAndCards();
+        showToast('All filters cleared', 'primary');
+    };
+    
+    window.clearChip = function(key) {
+        if(key === 'search') document.getElementById('fSearch').value = '';
+        if(key === 'warehouse') document.getElementById('fWh').value = '';
+        if(key === 'category') document.getElementById('fCategory').value = '';
+        if(key === 'brand') document.getElementById('fBrand').value = '';
+        if(key === 'show') document.getElementById('fShow').value = 'all';
+        applyFilters();
+        currentPage = 1;
+        renderTable();
+        updateMainProgressAndCards();
+    };
+    
+    window.clearAllCounts = function() {
+        if(!confirm('Clear all entered counts? This cannot be undone.')) return;
+        for(var batchNo in MASTER_BATCHES) {
+            if(MASTER_BATCHES[batchNo].products) {
+                MASTER_BATCHES[batchNo].products.forEach(function(p) { p.counted = null; });
+            }
+        }
+        renderTable();
+        updateMainProgressAndCards();
+        showToast('All counts cleared', 'warning');
+    };
+    
+    window.toggleAll = function(chk) {
+        document.querySelectorAll('.row-chk').forEach(function(c) { c.checked = chk.checked; });
+    };
+    
+    window.saveDraft = function() { showToast('Draft saved — ' + ADJ_NO, 'success'); };
+    window.refreshTable = function() { loadData(); };
+    window.doExport = function(t) { showToast('Exporting ' + t.toUpperCase() + '…', 'primary'); };
+    
+    window.openSubmitModal = function() {
+    var countedItems = [];
+    for(var batchNo in MASTER_BATCHES) {
+        MASTER_BATCHES[batchNo].products.forEach(function(p) {
+            if(p.counted !== null && p.counted !== '') {
+                countedItems.push(p);
+            }
+        });
+    }
+    
+    if(countedItems.length === 0) {
+        showToast('No counts entered yet', 'warning');
+        return;
+    }
+    
+    var body = document.getElementById('submitSummaryBody');
+    if(body) {
+        body.innerHTML = countedItems.map(function(p) {
+            var batch = null;
+            for(var bn in MASTER_BATCHES) {
+                if(MASTER_BATCHES[bn].products.some(function(prod) { return prod.id === p.id; })) {
+                    batch = MASTER_BATCHES[bn];
+                    break;
+                }
+            }
+            var v = getVariance(p);
+            return '<tr>' +
+                '<td class="fw-medium">' + p.product_name + '</td>' +
+                '<td>' + (batch ? batch.batch_no : '—') + '</td>' +
+                '<td>' + (batch ? batch.warehouse_name : '—') + '</td>' +
+                '<td class="text-center">' + p.systemQty + '</td>' +
+                '<td class="text-center fw-semibold">' + p.counted + '</td>' +
+                '<td class="text-center ' + (v > 0 ? 'text-success fw-semibold' : v < 0 ? 'text-danger fw-semibold' : 'text-muted') + '">' + (v !== null ? (v > 0 ? '+' : '') + v : '—') + '</td>' +
+                '<td class="text-center ' + (v !== 0 ? 'fw-semibold' : 'text-muted') + '">' + (v !== 0 ? formatCurrency(v * p.avg_cost) : '—') + '</td>' +
+                '</tr>';
+        }).join('');
+    }
+    
+    var modal = document.getElementById('submitModal');
+    if(modal) bootstrap.Modal.getOrCreateInstance(modal).show();
+};
+    
+    window.confirmSubmit = function() {
+    var note = document.getElementById('submitNote').value.trim();
+    if(!note) { 
+        showToast('Add notes describing the count process', 'danger'); 
+        return; 
+    }
+    
+    // Collect items with counts entered
+    var items = [];
+    for(var batchNo in MASTER_BATCHES) {
+        var batch = MASTER_BATCHES[batchNo];
+        batch.products.forEach(function(p) {
+            if(p.counted !== null && p.counted !== '') {
+                items.push({
+                    product_id: p.product_id,
+                    batch_id: batch.batch_id || null,
+                    warehouse_id: batch.warehouse_id,
+                    systemQty: p.systemQty,
+                    counted: parseFloat(p.counted)
+                });
+            }
+        });
+    }
+    
+    if(items.length === 0) {
+        showToast('No counts entered yet', 'warning');
+        return;
+    }
+    
+    console.log('Submitting items:', items);
+    console.log('Total items to submit:', items.length);
+    
+    fetch('<?php echo base_url("StockAdjustment/submit"); ?>', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'adjustment_no=' + encodeURIComponent(ADJ_NO) + 
+              '&notes=' + encodeURIComponent(note) + 
+              '&items=' + encodeURIComponent(JSON.stringify(items))
+    }).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        console.log('Submit response:', data);
+        if(data.success) {
+            showToast(data.message, 'success');
+            document.getElementById('submitNote').value = '';
+            
+            // Hide Submit button, show Approve button
+            document.getElementById('btnSubmit').classList.add('d-none');
+            document.getElementById('btnApprove').classList.remove('d-none');
+            
+            // Update status UI to 'submitted'
+            updateStatusUI('submitted');
+            
+            // DO NOT reload data - keep the counts in MASTER_BATCHES
+            // Just re-render to update UI
+            renderTable();
+            updateMainProgressAndCards();
+            
+            // Close the submit modal if it's open
+            var submitModal = document.getElementById('submitModal');
+            if(submitModal) {
+                var modal = bootstrap.Modal.getInstance(submitModal);
+                if(modal) modal.hide();
+            }
+        } else {
+            showToast(data.message || 'Submission failed', 'danger');
+        }
+    }).catch(function(error) { 
+        console.error('Submit error:', error); 
+        showToast('Submission failed: ' + error.message, 'danger'); 
+    });
+};
+    
+    window.openApproveModal = function() {
+    var withVar = [];
+    var totalImpact = 0;
+    var countedTotal = 0;
+    var totalSystemQty = 0;
+    var totalCountedQty = 0;
+    
+    for(var batchNo in MASTER_BATCHES) {
+        var batch = MASTER_BATCHES[batchNo];
+        batch.products.forEach(function(p) {
+            // Only include products that have been counted
+            if(p.counted !== null && p.counted !== '') {
+                countedTotal++;
+                totalCountedQty += parseFloat(p.counted);
+                totalSystemQty += p.systemQty;
+                
+                var v = parseFloat(p.counted) - p.systemQty;
+                if(v !== 0) {
+                    withVar.push(p);
+                    totalImpact += v * p.avg_cost;
+                }
+            }
+        });
+    }
+    
+    // Debug logging
+    console.log('Approve Modal Summary:');
+    console.log('Total Counted Lines:', countedTotal);
+    console.log('Lines with Variance:', withVar.length);
+    console.log('Total Impact:', totalImpact);
+    
+    var list = document.getElementById('approveSummaryList');
+    if(list) {
+        list.innerHTML = [
+            ['Adjustment No.', ADJ_NO],
+            ['Total Lines Counted', countedTotal],
+            ['Lines with Variance', withVar.length],
+            ['Total System Quantity', totalSystemQty],
+            ['Total Counted Quantity', totalCountedQty],
+            ['Total Value Impact', formatCurrency(totalImpact)]
+        ].map(function(r) {
+            return '<li class="list-group-item px-0 py-2 d-flex justify-content-between fs-13"><span class="text-muted">' + r[0] + '</span><span class="fw-semibold">' + r[1] + '</span></li>';
+        }).join('');
+    }
+    
+    var modal = document.getElementById('approveModal');
+    if(modal) bootstrap.Modal.getOrCreateInstance(modal).show();
+};
+    
+    window.confirmApprove = function() {
+        fetch('<?php echo base_url("StockAdjustment/approve"); ?>', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'adjustment_no=' + ADJ_NO
+        }).then(r => r.json()).then(data => {
+            if(data.success) {
+                showToast(data.message, 'success');
+                updateStatusUI('approved');
+                document.getElementById('btnApprove').classList.add('d-none');
+                loadData();
+            } else showToast(data.message, 'danger');
+        }).catch(e => { console.error(e); showToast('Approval failed', 'danger'); });
+    };
+    
+    function updateStatusUI(status) {
+        var chips = { draft: '<i class="ri-edit-line me-1"></i>Draft', submitted: '<i class="ri-send-plane-line me-1"></i>Submitted', approved: '<i class="ri-checkbox-circle-fill me-1"></i>Approved' };
+        var el = document.getElementById('statusChip');
+        if(el) el.innerHTML = chips[status] || chips.draft;
+        
+        var steps = ['Open', 'Count', 'Review', 'Submit', 'Approve', 'Posted'];
+        var idx = {draft: 1, submitted: 3, approved: 5};
+        var activeIdx = idx[status] || 1;
+        var wf = document.getElementById('wfBar');
+        if(wf) {
+            wf.innerHTML = steps.map(function(s, i) {
+                var cls = i < activeIdx ? 'done' : (i === activeIdx ? 'active' : '');
+                return '<span class="wf-s ' + cls + '">' + (i < activeIdx ? '<i class="ri-check-line"></i>' : '') + s + '</span>';
+            }).join('');
+        }
+    }
+    
+    function init() {
+        loadData();
+        updateStatusUI('draft');
+    }
+    
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+		else setTimeout(init, 80);
+	})();
+	// ========== ADD PERMISSION CODE HERE (INSIDE SCRIPT TAG) ==========
+	// Get permission flags from PHP
+	var CAN_APPROVE = <?php echo isset($can_approve) ? ($can_approve ? 'true' : 'false') : 'false'; ?>;
+	var CAN_SUBMIT = <?php echo isset($can_submit) ? ($can_submit ? 'true' : 'false') : 'true'; ?>;
+
+	console.log('Permissions - Can Approve:', CAN_APPROVE);
+	console.log('Permissions - Can Submit:', CAN_SUBMIT);
+
+	// Override the openApproveModal function to check permissions
+	var originalOpenApproveModal = window.openApproveModal;
+	window.openApproveModal = function() {
+		if (!CAN_APPROVE) {
+			showToast('You do not have permission to approve stock adjustments', 'danger');
+			return;
+		}
+		if (originalOpenApproveModal) {
+			originalOpenApproveModal();
+		}
+	};
+
+	// Override the confirmApprove function to double-check
+	var originalConfirmApprove = window.confirmApprove;
+	window.confirmApprove = function() {
+		if (!CAN_APPROVE) {
+			showToast('You do not have permission to approve stock adjustments', 'danger');
+			return;
+		}
+		if (originalConfirmApprove) {
+			originalConfirmApprove();
+		}
+	};
+
+	// Hide approve button if no permission
+	if (!CAN_APPROVE) {
+		var approveBtn = document.getElementById('btnApprove');
+		if (approveBtn) {
+			approveBtn.style.display = 'none';
+		}
+	}
+	// ========== END OF PERMISSION CODE ==========
+
+</script>
+

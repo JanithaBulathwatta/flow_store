@@ -1,0 +1,136 @@
+2026-04-21 15:59:10
+Phone: 0760411535
+Result: {"success":false,"response":{"stt":"error","msg":"SMS sending failed!","data":""}}
+---
+2026-04-21 16:07:03
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":29204}}
+---
+2026-04-21 16:08:59
+Phone: 94720491535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":29205}}
+---
+2026-04-21 16:23:55
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":29211}}
+---
+2026-04-22 13:49:16
+Phone: 94713448179
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":29576}}
+---
+2026-04-28 13:57:30
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":31195}}
+---
+2026-04-28 14:04:25
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":31196}}
+---
+2026-05-11 16:21:55
+Phone: 94713448179
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":34999}}
+---
+2026-05-11 16:33:28
+Phone: 94713448179
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":35004}}
+---
+2026-05-11 16:43:58
+Phone: 94713448179
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":35008}}
+---
+2026-05-11 17:02:59
+Phone: 94713448179
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":35015}}
+---
+2026-05-15 16:11:08
+Phone: 94777123456
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":36123}}
+---
+2026-05-15 16:12:36
+Phone: 94777123456
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":36128}}
+---
+2026-05-17 12:54:38
+Phone: 94788300077
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":36448}}
+---
+2026-05-26 13:40:06
+Phone: 94702952227
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":38787}}
+---
+2026-05-27 13:46:27
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":39279}}
+---
+2026-05-27 13:48:02
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":39281}}
+---
+2026-05-27 13:51:59
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":39283}}
+---
+2026-05-28 09:28:44
+Phone: 94719909200
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":39505}}
+---
+2026-05-28 09:30:13
+Phone: 94720491535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":39506}}
+---
+2026-05-30 08:29:48
+Phone: 94777123456
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":40011}}
+---
+2026-06-01 13:25:23
+Phone: 94760411535
+Result: {"success":false,"response":{"stt":"ok","msg":"SMS sending successful!","data":40376}}
+---
+2026-06-03 12:45:09
+Phone: 94702952227
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":41211}}
+---
+2026-06-03 12:52:51
+Phone: 94702952227
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":41213}}
+---
+2026-06-08 13:54:00
+Phone: 94702952227
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":43326}}
+---
+2026-06-10 13:22:25
+Phone: 94702952227
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":44257}}
+---
+2026-06-11 12:47:00
+Phone: 94764128855
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":44703}}
+---
+2026-06-11 12:48:05
+Phone: 94764128855
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":44704}}
+---
+2026-06-11 12:50:37
+Phone: 94702952227
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":44708}}
+---
+2026-06-13 14:08:34
+Phone: 94767090995
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":45326}}
+---
+2026-06-15 09:09:06
+Phone: 94720491535
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":45790}}
+---
+2026-06-18 13:25:02
+Phone: 94760411535
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":46964}}
+---
+2026-10-02 16:06:31
+Phone: 94706452726
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":94323}}
+---
+2026-10-06 15:17:17
+Phone: 94774110945
+Result: {"success":true,"response":{"stt":"ok","msg":"SMS sending successful!","data":96057}}
+---

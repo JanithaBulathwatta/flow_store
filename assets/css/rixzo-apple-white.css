@@ -1,0 +1,853 @@
+/*
+ * ============================================================
+ *  RIXZO ADMIN — Apple White Theme Override
+ *  Philosophy: White everywhere. Gray only for depth/contrast.
+ *              Black only for text and key accents.
+ *
+ *  Drop this LAST in <head>, after all Rixzo CSS files:
+ *  <link rel="stylesheet" href="rixzo-apple-white.css">
+ * ============================================================
+ */
+
+/* ─── 0. Font ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap');
+
+/* ─── 1. Override Rixzo's CSS Design Tokens ───────────────── */
+/*
+ * Strategy: redefine the same --variables Rixzo uses
+ * internally, so every component picks up the new values
+ * without needing per-selector !important overrides.
+ * Color-coded status (success/warning/danger/info) are kept
+ * muted but functional.
+ */
+:root {
+  /* Core palette — white-first */
+  --body-bg-rgb:              248, 249, 250;   /* near-white page bg */
+  --primary-rgb:              30, 30, 30;       /* replaces purple with near-black */
+  --secondary-rgb:            100, 100, 105;    /* muted gray */
+  --warning-rgb:              255, 192, 65;      /* amber, darkened for white bg */
+  --info-rgb:                 70, 130, 180;     /* steel blue */
+  --success-rgb:              53, 189, 170;      /* forest green */
+  --danger-rgb:               248, 66, 56;      /* brick red */
+  --light-rgb:                248, 248, 250;
+  --dark-rgb:                 20, 20, 22;
+  --orange-rgb:               180, 90, 50;
+  --pink-rgb:                 180, 80, 110;
+  --teal-rgb:                 20, 150, 150;
+  --purple-rgb:               90, 30, 160;
+  --green-rgb:                30, 160, 60;
+
+  /* Primary shades — now based on near-black */
+  --primary-color:            rgb(30, 30, 30);
+  --primary-border:           rgb(30, 30, 30);
+  --primary01:                rgba(30, 30, 30, 0.06);
+  --primary02:                rgba(30, 30, 30, 0.10);
+  --primary03:                rgba(30, 30, 30, 0.18);
+  --primary04:                rgba(30, 30, 30, 0.28);
+  --primary05:                rgba(30, 30, 30, 0.40);
+  --primary06:                rgba(30, 30, 30, 0.55);
+  --primary07:                rgba(30, 30, 30, 0.65);
+  --primary08:                rgba(30, 30, 30, 0.75);
+  --primary09:                rgba(30, 30, 30, 0.88);
+  --primary005:               rgba(30, 30, 30, 0.04);
+
+  /* Font */
+  --default-font-family:      'Inter', -apple-system, BlinkMacSystemFont,
+                              'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --default-font-weight:      400;
+
+  /* Text */
+  --default-text-color:       #1a1a1e;
+  --text-muted:               #8a8a96;
+
+  /* Surfaces — all bright white */
+  --custom-white:             #ffffff;
+  --custom-black:             #1a1a1e;
+  --default-body-bg-color:    rgb(var(--body-bg-rgb));
+  --default-background:       #f2f3f5;
+  --form-control-bg:          #ffffff;
+
+  /* Borders — very light, barely-there */
+  --default-border:           #e8eaee;
+  --bootstrap-card-border:    #e8eaee;
+  --input-border:             #e0e3e9;
+
+  /* Menu (sidebar) — pure white */
+  --menu-bg:                  #ffffff;
+  --menu-prime-color:         #6b6b78;
+  --menu-border-color:        #ebebef;
+
+  /* Header (topbar) — pure white */
+  --header-bg:                #ffffff;
+  --header-prime-color:       #6b6b78;
+  --header-border-color:      #ebebef;
+
+  /* Grays — lighter scale */
+  --gray-1:                   #fafafa;
+  --gray-2:                   #f4f4f6;
+  --gray-3:                   #e8eaee;
+  --gray-4:                   #dddde5;
+  --gray-5:                   #aaaabc;
+  --gray-6:                   #7a7a8e;
+  --gray-7:                   #4d4d62;
+  --gray-8:                   #2e2e40;
+  --gray-9:                   #1a1a2e;
+
+  /* Hover / focus state */
+  --list-hover-focus-bg:      #f5f5f8;
+}
+
+/* ─── 2. Base body & font ─────────────────────────────────── */
+body {
+  font-family:          var(--default-font-family) !important;
+  background-color:     rgb(var(--body-bg-rgb)) !important;
+  color:                var(--default-text-color) !important;
+  font-size:            0.875rem !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  letter-spacing:       -0.005em !important;
+}
+
+/* ─── 3. App Sidebar ──────────────────────────────────────── */
+.app-sidebar {
+  background:    rgb(235, 237, 240) !important;
+  border-inline-end: 1px solid var(--menu-border-color) !important;
+  box-shadow:     none !important;
+}
+
+.app-sidebar .main-sidebar {
+  background:     transparent !important;
+  box-shadow:     none !important;
+}
+
+.app-sidebar .main-sidebar-header {
+  background:     #dedede !important;
+  border-inline-end: none !important;
+  border-block-end: 1px solid var(--menu-border-color) !important;
+  padding: 0 1.25rem !important;
+}
+
+/* Sidebar nav category labels */
+.app-sidebar .slide-menu-category {
+  color:          #b0b0bc !important;
+  font-size:      0.68rem !important;
+  font-weight:    600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding:        1.2rem 1.25rem 0.4rem !important;
+}
+
+/* Sidebar nav items */
+.app-sidebar .side-menu__item {
+  /*color:            var(--menu-prime-color) !important;*/
+  color:            rgb(255, 255, 255) !important;
+  font-size:        0.8125rem !important;
+  font-weight:      450 !important;
+  border-radius:    0.5rem !important;
+  margin-inline:    0.5rem !important;
+  padding:          0.525rem 0.75rem !important;
+  transition:       background 0.14s ease, color 0.14s ease !important;
+}
+
+.app-sidebar .side-menu__item:hover {
+  background-color: var(--gray-2) !important;
+  color:            var(--default-text-color) !important;
+}
+
+.app-sidebar .side-menu__item.active {
+  background-color: var(--gray-2) !important;
+  color:            var(--default-text-color) !important;
+  font-weight:      550 !important;
+}
+
+.app-sidebar .side-menu__item.active .side-menu__icon,
+.app-sidebar .side-menu__item.active .side-menu__label {
+  color:  var(--default-text-color) !important;
+  fill:   var(--default-text-color) !important;
+}
+
+.app-sidebar .side-menu__icon {
+  color:      var(--menu-prime-color) !important;
+  fill:       var(--menu-prime-color) !important;
+  font-size:  1rem !important;
+  width:      1.1rem !important;
+  opacity:    0.7 !important;
+}
+
+.app-sidebar .side-menu__item.active .side-menu__icon,
+.app-sidebar .side-menu__item:hover .side-menu__icon {
+  opacity: 1 !important;
+}
+
+/* Sub-menus */
+.app-sidebar .slide-menu {
+  background: transparent !important;
+}
+
+.app-sidebar .slide-menu.child1 .side-menu__item,
+.app-sidebar .slide-menu.child2 .side-menu__item,
+.app-sidebar .slide-menu.child3 .side-menu__item {
+  font-size:    0.79rem !important;
+  padding-block: 0.45rem !important;
+}
+
+/* Sidebar active indicator line — replaced with bg pill, hide line */
+.app-sidebar .side-menu__item.active::before {
+  display: none !important;
+}
+
+/* ─── 4. App Header / Topbar ──────────────────────────────── */
+.app-header {
+  background:     var(--header-bg) !important;
+  border-block-end: 1px solid var(--header-border-color) !important;
+  box-shadow:     none !important;
+  backdrop-filter: none !important;
+}
+
+/* Header icons & links */
+.header-link,
+.main-header-container .header-element .header-link {
+  color:      var(--header-prime-color) !important;
+  border-radius: 0.5rem !important;
+  transition: background 0.14s !important;
+}
+
+.header-link:hover,
+.main-header-container .header-element .header-link:hover {
+  background: var(--gray-2) !important;
+  color:      var(--default-text-color) !important;
+}
+
+/* Header search */
+.header-search-bar,
+.header-element input[type="search"],
+.header-element .form-control {
+  background:   var(--gray-2) !important;
+  border-color: transparent !important;
+  border-radius: 0.6rem !important;
+  font-size:    0.8125rem !important;
+  color:        var(--default-text-color) !important;
+}
+
+.header-search-bar:focus,
+.header-element input[type="search"]:focus {
+  background:   #fff !important;
+  border-color: var(--default-border) !important;
+  box-shadow:   0 0 0 3px rgba(0,0,0,0.05) !important;
+}
+
+/* ─── 5. Cards ────────────────────────────────────────────── */
+.card,
+.card.custom-card {
+  /*background:     var(--custom-white) !important;*/
+  border:         1px solid dbdfe3  !important;
+  border-radius:  0.85rem !important;
+  /*box-shadow:     0 1px 4px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.04) !important;*/
+  transition:     box-shadow 0.2s ease !important;
+}
+
+.card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.card-header {
+  background:     transparent !important;
+  border-block-end: 1px solid var(--default-border) !important;
+  padding:        1rem 1.25rem !important;
+  font-size:      0.9rem !important;
+  font-weight:    600 !important;
+  color:          var(--default-text-color) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.card-body {
+  /*padding: 1.25rem !important;*/
+  padding:0.5rem !important;
+}
+
+.card-footer {
+  background:     transparent !important;
+  border-block-start: 1px solid var(--default-border) !important;
+  padding:        0.875rem 1.25rem !important;
+}
+
+.card-title {
+  font-size:    0.9375rem !important;
+  font-weight:  600 !important;
+  letter-spacing: -0.01em !important;
+  color:        var(--default-text-color) !important;
+}
+
+/* ─── 6. Buttons ──────────────────────────────────────────── */
+.btn {
+  font-family:    var(--default-font-family) !important;
+  font-size:      0.8125rem !important;
+  font-weight:    500 !important;
+  letter-spacing: -0.005em !important;
+  border-radius:  0.55rem !important;
+  padding:        0.42rem 1rem !important;
+  box-shadow:     none !important;
+  transition:     background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s !important;
+}
+
+.btn:hover { transform: translateY(-1px) !important; }
+.btn:active { transform: translateY(0) !important; }
+
+/* Primary = clean black */
+.btn-primary {
+  background-color: #1a1a1e !important;
+  border-color:     #1a1a1e !important;
+  color:            #fff !important;
+}
+.btn-primary:hover {
+  background-color: #2e2e38 !important;
+  border-color:     #2e2e38 !important;
+}
+
+/* Secondary = soft light gray */
+.btn-secondary {
+  background-color: var(--gray-3) !important;
+  border-color:     var(--gray-3) !important;
+  color:            var(--default-text-color) !important;
+}
+.btn-secondary:hover {
+  background-color: var(--gray-4) !important;
+  border-color:     var(--gray-4) !important;
+  color:            var(--default-text-color) !important;
+}
+
+/* Light */
+.btn-light {
+  background-color: var(--gray-2) !important;
+  border-color:     var(--default-border) !important;
+  color:            var(--default-text-color) !important;
+}
+.btn-light:hover {
+  background-color: var(--gray-3) !important;
+}
+
+/* Outline primary */
+.btn-outline-primary {
+  border-color: #1a1a1e !important;
+  color:        #1a1a1e !important;
+  background:   transparent !important;
+}
+.btn-outline-primary:hover {
+  background-color: #1a1a1e !important;
+  color:            #fff !important;
+}
+
+/* Status buttons — keep colored but softer */
+/*.btn-success  { background-color: rgb(var(--success-rgb)) !important;
+  border-color: rgb(var(--success-rgb)) !important;
+  color: #fff !important; }
+.btn-warning  { background: #b47800 !important; border-color: #b47800 !important; color: #fff !important; }
+.btn-danger   { background: #c8302a !important; border-color: #c8302a !important; color: #fff !important; }
+.btn-info     { background: #3d7ab5 !important; border-color: #3d7ab5 !important; color: #fff !important; }*/
+
+.btn.btn-sm {
+  padding:       0.28rem 0.75rem !important;
+  font-size:     0.775rem !important;
+  border-radius: 0.45rem !important;
+}
+.btn.btn-lg {
+  padding:       0.6rem 1.4rem !important;
+  font-size:     0.9375rem !important;
+  border-radius: 0.65rem !important;
+}
+
+/* ─── 7. Forms & Inputs ───────────────────────────────────── */
+.form-control,
+.form-select {
+  font-family:    var(--default-font-family) !important;
+  font-size:      0.8375rem !important;
+  font-weight:    400 !important;
+  background-color: var(--form-control-bg) !important;
+  border:         1px solid var(--input-border) !important;
+  border-radius:  0.55rem !important;
+  color:          var(--default-text-color) !important;
+  /*padding:        0.45rem 0.85rem !important;*/
+  transition:     border-color 0.15s, box-shadow 0.15s !important;
+  line-height:    1.6 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #fff !important;
+  border-color:     #c0c0cc !important;
+  box-shadow:       0 0 0 3px rgba(0,0,0,0.06) !important;
+  color:            var(--default-text-color) !important;
+  outline:          none !important;
+}
+
+.form-control::placeholder { color: var(--text-muted) !important; opacity: 0.75 !important; }
+
+.form-label {
+  font-size:    0.775rem !important;
+  font-weight:  500 !important;
+  color:        var(--default-text-color) !important;
+  margin-bottom: 0.35rem !important;
+}
+
+.form-check-input:checked {
+  background-color: #1a1a1e !important;
+  border-color:     #1a1a1e !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06) !important;
+  border-color: #a0a0b0 !important;
+}
+
+.input-group-text {
+  background-color: var(--gray-2) !important;
+  border-color:     var(--input-border) !important;
+  color:            var(--text-muted) !important;
+  font-size:        0.8125rem !important;
+  border-radius:    0.55rem !important;
+}
+
+/* ─── 8. Tables ───────────────────────────────────────────── */
+.table {
+  font-size:  0.8125rem !important;
+  color:      var(--default-text-color) !important;
+}
+
+.table thead th {
+  background:     var(--gray-1) !important;
+  color:          var(--text-muted) !important;
+  font-size:      0.7rem !important;
+  font-weight:    600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  border-bottom:  1px solid var(--default-border) !important;
+  padding:        0.65rem 1rem !important;
+  white-space:    nowrap !important;
+}
+
+.table tbody td {
+  border-bottom: 1px solid var(--default-border) !important;
+  padding:       0.75rem 1rem !important;
+  vertical-align: middle !important;
+  background:    #fff !important;
+}
+
+.table tbody tr:hover td {
+  background: var(--gray-1) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) td {
+  background: var(--gray-1) !important;
+}
+
+/* ─── 9. Badges ───────────────────────────────────────────── */
+.badge {
+  font-family:    var(--default-font-family) !important;
+  font-size:      0.68rem !important;
+  font-weight:    500 !important;
+  letter-spacing: 0.01em !important;
+  padding:        0.28em 0.65em !important;
+  border-radius:  20px !important;
+}
+
+/* Remap badge colors to desaturated, tinted chips */
+/*.badge.bg-primary    { background: #1a1a1e !important; color: #fff !important; }
+.badge.bg-secondary  { background: #e8e8ee !important; color: #4d4d62 !important; }
+.badge.bg-success    { background: #d4f0e0 !important; color: #1a6e3e !important; }
+.badge.bg-warning    { background: #fef3d5 !important; color: #8a5a00 !important; }
+.badge.bg-danger     { background: #fde8e7 !important; color: #a02020 !important; }
+.badge.bg-info       { background: #deeaf8 !important; color: #2a5a8a !important; }
+.badge.bg-light      { background: var(--gray-2) !important; color: var(--gray-7) !important; }
+.badge.bg-dark       { background: #1a1a1e !important; color: #fff !important; }*/
+
+
+/* ─── 10. Alerts ──────────────────────────────────────────── */
+.alert {
+  border-radius:  0.65rem !important;
+  font-size:      0.8125rem !important;
+  padding:        0.9rem 1.1rem !important;
+  border-width:   1px !important;
+}
+
+.alert-primary  { background: #f2f2f4 !important; color: #1a1a1e !important; border-color: #d8d8e0 !important; }
+.alert-success  { background: #d4f0e0 !important; color: #1a6e3e !important; border-color: #b8e5cc !important; }
+.alert-warning  { background: #fef3d5 !important; color: #8a5a00 !important; border-color: #ffe5a0 !important; }
+.alert-danger   { background: #fde8e7 !important; color: #a02020 !important; border-color: #f9cece !important; }
+.alert-info     { background: #deeaf8 !important; color: #2a5a8a !important; border-color: #c0d8f0 !important; }
+.alert-secondary{ background: var(--gray-2) !important; color: var(--gray-7) !important; border-color: var(--gray-3) !important; }
+
+/* ─── 11. Modals ──────────────────────────────────────────── */
+.modal-content {
+  background:     #fff !important;
+  border:         1px solid var(--default-border) !important;
+  border-radius:  1rem !important;
+  box-shadow:     0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05) !important;
+  overflow:       hidden !important;
+}
+
+.modal-header {
+  background:     transparent !important;
+  border-block-end: 1px solid var(--default-border) !important;
+  padding:        1.1rem 1.5rem !important;
+}
+
+.modal-title {
+  font-size:    1.0rem !important;
+  font-weight:  600 !important;
+  color:        var(--default-text-color) !important;
+  letter-spacing: -0.015em !important;
+}
+
+.modal-body {
+  padding:    1.5rem !important;
+  font-size:  0.8375rem !important;
+  color:      var(--text-muted) !important;
+}
+
+.modal-footer {
+  background:   transparent !important;
+  border-block-start: 1px solid var(--default-border) !important;
+  padding:      0.875rem 1.5rem !important;
+}
+
+.modal-backdrop.show { opacity: 0.2 !important; }
+
+/* ─── 12. Dropdowns ───────────────────────────────────────── */
+.dropdown-menu {
+  background:     rgba(255,255,255,0.97) !important;
+  border:         1px solid var(--default-border) !important;
+  border-radius:  0.75rem !important;
+  box-shadow:     0 4px 24px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05) !important;
+  padding:        0.4rem !important;
+  font-size:      0.8125rem !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.dropdown-item {
+  border-radius:  0.5rem !important;
+  color:          var(--default-text-color) !important;
+  padding:        0.5rem 0.85rem !important;
+  font-size:      0.8125rem !important;
+  transition:     background 0.12s !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: var(--gray-2) !important;
+  color:      var(--default-text-color) !important;
+}
+
+.dropdown-item:active,
+.dropdown-item.active {
+  background: var(--gray-3) !important;
+  color:      var(--default-text-color) !important;
+}
+
+.dropdown-divider { border-color: var(--default-border) !important; margin: 0.3rem 0 !important; }
+
+.dropdown-header {
+  font-size:    0.68rem !important;
+  font-weight:  600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color:        var(--text-muted) !important;
+  padding:      0.55rem 0.85rem 0.3rem !important;
+}
+
+/* ─── 13. Tabs ────────────────────────────────────────────── */
+.nav-tabs {
+  border-bottom: 1px solid var(--default-border) !important;
+}
+
+.nav-tabs .nav-link {
+  font-size:    0.8125rem !important;
+  font-weight:  450 !important;
+  color:        var(--text-muted) !important;
+  border:       none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  padding:      0.6rem 0.9rem !important;
+  transition:   color 0.14s, border-color 0.14s !important;
+  background:   transparent !important;
+}
+
+.nav-tabs .nav-link:hover { color: var(--default-text-color) !important; }
+
+.nav-tabs .nav-link.active {
+  color:        var(--default-text-color) !important;
+  font-weight:  600 !important;
+  background:   transparent !important;
+  border-bottom-color: var(--default-text-color) !important;
+}
+
+.nav-pills .nav-link {
+  font-size:    0.8125rem !important;
+  font-weight:  450 !important;
+  color:        var(--text-muted) !important;
+  border-radius: 0.5rem !important;
+  padding:      0.45rem 0.9rem !important;
+  transition:   all 0.14s !important;
+}
+
+.nav-pills .nav-link.active {
+  background:   #1a1a1e !important;
+  color:        #fff !important;
+  font-weight:  550 !important;
+}
+
+/* ─── 14. Progress ────────────────────────────────────────── */
+.progress {
+  background:     var(--gray-3) !important;
+  border-radius:  99px !important;
+  height:         6px !important;
+  overflow:       hidden !important;
+}
+
+.progress-bar {
+  background:     #1a1a1e !important;
+  border-radius:  99px !important;
+}
+
+.progress-bar.bg-primary { background: #1a1a1e !important; }
+.progress-bar.bg-success { background: #22824e !important; }
+.progress-bar.bg-warning { background: #b47800 !important; }
+.progress-bar.bg-danger  { background: #c8302a !important; }
+.progress-bar.bg-info    { background: #3d7ab5 !important; }
+
+/* ─── 15. List Groups ─────────────────────────────────────── */
+.list-group-item {
+  background:     #fff !important;
+  border-color:   var(--default-border) !important;
+  color:          var(--default-text-color) !important;
+  font-size:      0.8375rem !important;
+  padding:        0.75rem 1rem !important;
+  transition:     background 0.12s !important;
+}
+
+.list-group-item:hover { background: var(--gray-1) !important; }
+
+.list-group-item.active {
+  background:     var(--gray-2) !important;
+  border-color:   var(--default-border) !important;
+  color:          var(--default-text-color) !important;
+  font-weight:    550 !important;
+}
+
+/* ─── 16. Pagination ──────────────────────────────────────── */
+.page-link {
+  background:     transparent !important;
+  border:         none !important;
+  border-radius:  0.5rem !important;
+  color:          var(--text-muted) !important;
+  font-size:      0.8125rem !important;
+  font-weight:    450 !important;
+  padding:        0.42rem 0.75rem !important;
+  transition:     background 0.12s, color 0.12s !important;
+}
+
+.page-link:hover {
+  background: var(--gray-2) !important;
+  color:      var(--default-text-color) !important;
+}
+
+.page-item.active .page-link {
+  background:   #1a1a1e !important;
+  color:        #fff !important;
+  font-weight:  600 !important;
+}
+
+/* ─── 17. Breadcrumb ──────────────────────────────────────── */
+.breadcrumb-item a {
+  color: var(--primary-color) !important;
+  text-decoration: none !important;
+}
+.breadcrumb-item a:hover { text-decoration: underline !important; }
+.breadcrumb-item.active { color: var(--default-text-color) !important; font-weight: 500 !important; }
+
+/* ─── 18. Accordion ───────────────────────────────────────── */
+.accordion-button {
+  background-color: var(--custom-white) !important;
+  color:          var(--default-text-color) !important;
+  font-size:      0.85rem !important;
+  font-weight:    500 !important;
+  letter-spacing: -0.005em !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--gray-1) !important;
+  color:          var(--default-text-color) !important;
+  box-shadow:     none !important;
+}
+
+.accordion-button:after {
+  background-color: var(--gray-2) !important;
+  color:          var(--default-text-color) !important;
+  border-radius:  50% !important;
+}
+
+.accordion-item {
+  background-color: var(--custom-white) !important;
+  border-color:   var(--default-border) !important;
+}
+
+.accordion-body {
+  font-size:  0.8rem !important;
+  color:      var(--text-muted) !important;
+}
+
+/* ─── 19. Tooltips & Popovers ─────────────────────────────── */
+.tooltip-inner {
+  background:     #1a1a1e !important;
+  color:          #fff !important;
+  font-family:    var(--default-font-family) !important;
+  font-size:      0.75rem !important;
+  border-radius:  0.5rem !important;
+  padding:        0.35rem 0.65rem !important;
+}
+
+.popover {
+  background:     rgba(255,255,255,0.97) !important;
+  border:         1px solid var(--default-border) !important;
+  border-radius:  0.75rem !important;
+  box-shadow:     0 4px 24px rgba(0,0,0,0.1) !important;
+  font-family:    var(--default-font-family) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.popover-header {
+  background:     transparent !important;
+  border-bottom:  1px solid var(--default-border) !important;
+  font-size:      0.85rem !important;
+  font-weight:    600 !important;
+  color:          var(--default-text-color) !important;
+}
+
+.popover-body {
+  font-size:  0.8125rem !important;
+  color:      var(--text-muted) !important;
+}
+
+/* ─── 20. App / Page content wrapper ─────────────────────── */
+.app-content,
+.main-content,
+.content-area {
+  background:rgb(235, 237, 240) !important;
+}
+
+.page-header-breadcrumb {
+  background:   transparent !important;
+  padding-block: 0.75rem !important;
+}
+
+/* ─── 21. Footer ──────────────────────────────────────────── */
+.footer {
+  background:     var(--custom-white) !important;
+  border-block-start: 1px solid var(--default-border) !important;
+  box-shadow:     none !important;
+  color:          var(--text-muted) !important;
+  font-size:      0.8rem !important;
+}
+
+/* ─── 22. Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gray-3); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-4); }
+
+/* ─── 23. Typography ──────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family:    var(--default-font-family) !important;
+  font-weight:    600 !important;
+  letter-spacing: -0.02em !important;
+  color:          var(--default-text-color) !important;
+  line-height:    1.25 !important;
+}
+
+h1, .h1 { font-weight: 700 !important; }
+
+p { color: var(--text-muted) !important; line-height: 1.65 !important; }
+
+a {
+  color:          var(--default-text-color) !important;
+  text-decoration: none !important;
+}
+
+/* ─── 24. Utility color overrides ────────────────────────── */
+.text-primary   { color: var(--default-text-color) !important; }
+.text-secondary { color: var(--text-muted) !important; }
+.text-muted     { color: var(--text-muted) !important; }
+
+.bg-primary     { background-color: #1a1a1e !important; }
+.bg-secondary   { background-color: var(--gray-2) !important; }
+.bg-light       { background-color: var(--gray-1) !important; }
+.bg-white       { background-color: #fff !important; }
+
+/* ─── 25. Shadows (lighter) ───────────────────────────────── */
+.shadow-sm { box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important; }
+.shadow    { box-shadow: 0 2px 10px rgba(0,0,0,0.07) !important; }
+.shadow-lg { box-shadow: 0 4px 20px rgba(0,0,0,0.09) !important; }
+
+/* ─── 26. Neutralise the purple primary color ─────────────── */
+/*
+ * Rixzo uses var(--primary-color) in many places. Since we've
+ * redefined --primary-rgb to near-black above, this section
+ * catches any inline colored backgrounds / borders that still
+ * slip through with the old hue.
+ */
+[class*="bg-primary"]:not(.btn):not(.badge):not(.nav-link) {
+  background-color: #1a1a1e !important;
+}
+
+[class*="border-primary"] {
+  border-color: #1a1a1e !important;
+}
+
+/* Primary icon backgrounds used in stat cards */
+.avatar.bg-primary,
+.icon-box.bg-primary,
+[class*="icon-bg-primary"] {
+  background-color: var(--gray-2) !important;
+  color:            var(--default-text-color) !important;
+}
+
+/* ─── 27. Remove colored sidebar styles if applied ─────────── */
+[data-menu-styles=color],
+[data-menu-styles=gradient],
+[data-menu-styles=dark] {
+  --menu-bg:          #ffffff !important;
+  --menu-prime-color: #6b6b78 !important;
+  --menu-border-color: #ebebef !important;
+}
+
+/* ─── 28. Override colored header styles ─────────────────── */
+[data-header-styles=color],
+[data-header-styles=gradient],
+[data-header-styles=dark] {
+  --header-bg:          #ffffff !important;
+  --header-prime-color: #6b6b78 !important;
+  --header-border-color: #ebebef !important;
+}
+
+/* ─── 29. Responsive ──────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    box-shadow: 0 0 24px rgba(0,0,0,0.08) !important;
+  }
+  .app-content,
+  .main-content {
+    padding: 1rem !important;
+  }
+}
+
+/* ─── 30. Subtle animations ───────────────────────────────── */
+.card,
+.btn,
+.dropdown-item,
+.nav-link,
+.list-group-item,
+.page-link,
+.form-control,
+.app-sidebar .side-menu__item {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1792584482810
+Build-Jdk-Spec: 25
+Bundle-Description: Google's common Java library for parsing, formatting
+ , storing and validating international phone numbers.    Optimized for 
+ running on smartphones.
+Bundle-DocURL: http://www.google.com/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: prefixmapper
+Bundle-SymbolicName: com.googlecode.libphonenumber.prefixmapper
+Bundle-Vendor: Google
+Bundle-Version: 2.225.0
+Created-By: Apache Maven Bundle Plugin 5.1.9
+Fragment-Host: com.googlecode.libphonenumber
+Tool: Bnd-6.3.1.202206071316

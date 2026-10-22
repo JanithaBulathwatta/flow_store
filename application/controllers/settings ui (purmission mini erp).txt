@@ -1,0 +1,478 @@
+<!--<div class="container-fluid">
+
+    <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+        <h1 class="page-title fw-semibold fs-18 mb-0">Profile Settings</h1>
+        <div class="ms-md-1 ms-0">
+            <nav>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row gap-3 justify-content-center">
+        <div class="col-xl-9">
+            <div class="card custom-card">
+                <ul
+                    class="nav nav-tabs tab-style-8 scaleX rounded m-3 mb-0 profile-settings-tab gap-3"
+                    id="myTab4"
+                    role="tablist"
+                >
+                    <li class="nav-item me-1" role="presentation">
+                        <a
+                            href="javascript:void(0);"
+                            class="nav-link fs-16 fw-medium"
+                            id="edit-profile"
+                            data-bs-toggle="tab"
+                            data-bs-target="#edit-profile-pane"
+                            role="tab"
+                            aria-controls="edit-profile-pane"
+                            aria-selected="false"
+                            tabindex="-1"
+                            >Edit Profile</a
+                        >
+                    </li>
+                    <li class="nav-item me-1" role="presentation">
+                        <a
+                            href="javascript:void(0);"
+                            class="nav-link fs-16 fw-medium active"
+                            id="Other-settings-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#Other-settings-tab-pane"
+                            role="tab"
+                            aria-controls="Other-settings-tab-pane"
+                            aria-selected="true"
+                            >Other Settings</a
+                        >
+                    </li>
+                </ul>
+                <div class="p-3 border-bottom border-top border-block-end-dashed tab-content">
+                    <div class="tab-pane pt-3 overflow-hidden p-0 border-0" id="edit-profile-pane" role="tabpanel" aria-labelledby="edit-profile" tabindex="0" >
+						<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1 p-2 bg-primary-transparent rounded">
+                            <div class="fw-semibold d-block fs-17">Notifications Settings</div>
+                            <div class="btn btn-primary btn-sm">
+                                <i class="ri-loop-left-line lh-1 me-2"></i>Restore Changes
+                            </div>
+                        </div>
+                        <div class="row gx-5 gy-3">
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-top justify-content-between px-3">
+                                    <div class="mail-notification-settings">
+                                        <p class="fs-14 mb-1 fw-medium">Enable Push Alerts</p>
+                                        <p class="fs-12 mb-0 text-muted">
+                                            Stay updated with real-time notifications on your mobile or desktop.
+                                        </p>
+                                    </div>
+                                    <div class="toggle on toggle-success mb-0 float-sm-end" id="push-notifications">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-top justify-content-between px-3 mt-3">
+                                    <div class="mail-notification-settings">
+                                        <p class="fs-14 mb-1 fw-medium">Receive Email Alerts</p>
+                                        <p class="fs-12 mb-0 text-muted">
+                                            Get important updates sent directly to your email.
+                                        </p>
+                                    </div>
+                                    <div class="toggle toggle-success mb-0 float-sm-end" id="email-notifications">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-top justify-content-between px-3 mt-3">
+                                    <div class="mail-notification-settings">
+                                        <p class="fs-14 mb-1 fw-medium">Activate SMS Alerts</p>
+                                        <p class="fs-12 mb-0 text-muted">
+                                            Receive text message alerts on your mobile phone.
+                                        </p>
+                                    </div>
+                                    <div class="toggle toggle-success on mb-0 float-sm-end" id="sms-notifications">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1 p-2 bg-primary-transparent rounded mt-4" >
+                            <div class="fw-semibold d-block fs-17">Security Settings</div>
+                            <div class="btn btn-primary btn-sm">
+                                <i class="ri-loop-left-line lh-1 me-2"></i>Restore Changes
+                            </div>
+                        </div>
+                        <div class="d-sm-flex d-block align-items-top justify-content-between px-3">
+                            <div class="w-50">
+                                <p class="fs-14 mb-1 fw-medium">Profile Verification</p>
+                                <p class="fs-12 mb-0 text-muted">
+                                    Choose how you'd like to verify your profile information for added security and
+                                    identity confirmation.
+                                </p>
+                            </div>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input form-checked-success"
+                                        type="checkbox"
+                                        value=""
+                                        id="email-notifications01"
+                                        checked=""
+                                    />
+                                    <label class="form-check-label" for="email-notifications01"> Email </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input form-checked-success"
+                                        type="checkbox"
+                                        value=""
+                                        id="sms-notifications01"
+                                    />
+                                    <label class="form-check-label" for="sms-notifications01"> SMS </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input form-checked-success"
+                                        type="checkbox"
+                                        value=""
+                                        id="phone-notifications"
+                                    />
+                                    <label class="form-check-label" for="phone-notifications"> Phone Call </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-sm-flex d-block align-items-top justify-content-between px-3 mt-3">
+                            <div class="w-50">
+                                <p class="fs-14 mb-1 fw-medium">Two-Factor Authentication</p>
+                                <p class="fs-12 mb-0 text-muted">
+                                    Enable two-factor authentication to protect your account from unauthorized access,
+                                    even if your password is compromised.
+                                </p>
+                            </div>
+                            <a href="javascript:void(0);" class="link-info text-decoration-underline fw-medium"
+                                >Set Up Two-Factor Authentication</a
+                            >
+                        </div>
+                        <div class="d-sm-flex d-block align-items-top justify-content-between px-3 mt-3">
+                            <div class="w-50">
+                                <p class="fs-14 mb-1 fw-medium">Password Protection</p>
+                                <p class="fs-12 mb-0 text-muted">
+                                    Enable additional verification when changing account settings to ensure the rightful
+                                    account owner is making modifications.
+                                </p>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input form-checked-success"
+                                    type="checkbox"
+                                    value=""
+                                    id="personal-details"
+                                />
+                                <label class="form-check-label" for="personal-details">
+                                    Require Identity Confirmation
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane pt-3 overflow-hidden p-0 border-0 active show"id="Other-settings-tab-pane"role="tabpanel"aria-labelledby="Other-settings-tab"tabindex="0" >
+                        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1 p-2 bg-primary-transparent rounded">
+                            <div class="fw-semibold d-block fs-17">Notifications Settings</div>
+                            <div class="btn btn-primary btn-sm">
+                                <i class="ri-loop-left-line lh-1 me-2"></i>Restore Changes
+                            </div>
+                        </div>
+                        <div class="row gx-5 gy-3">
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-top justify-content-between px-3">
+                                    <div class="mail-notification-settings">
+                                        <p class="fs-14 mb-1 fw-medium">Enable Push Alerts</p>
+                                        <p class="fs-12 mb-0 text-muted">
+                                            Stay updated with real-time notifications on your mobile or desktop.
+                                        </p>
+                                    </div>
+                                    <div class="toggle on toggle-success mb-0 float-sm-end" id="push-notifications">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-top justify-content-between px-3 mt-3">
+                                    <div class="mail-notification-settings">
+                                        <p class="fs-14 mb-1 fw-medium">Receive Email Alerts</p>
+                                        <p class="fs-12 mb-0 text-muted">
+                                            Get important updates sent directly to your email.
+                                        </p>
+                                    </div>
+                                    <div class="toggle toggle-success mb-0 float-sm-end" id="email-notifications">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-top justify-content-between px-3 mt-3">
+                                    <div class="mail-notification-settings">
+                                        <p class="fs-14 mb-1 fw-medium">Activate SMS Alerts</p>
+                                        <p class="fs-12 mb-0 text-muted">
+                                            Receive text message alerts on your mobile phone.
+                                        </p>
+                                    </div>
+                                    <div class="toggle toggle-success on mb-0 float-sm-end" id="sms-notifications">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1 p-2 bg-primary-transparent rounded mt-4" >
+                            <div class="fw-semibold d-block fs-17">Security Settings</div>
+                            <div class="btn btn-primary btn-sm">
+                                <i class="ri-loop-left-line lh-1 me-2"></i>Restore Changes
+                            </div>
+                        </div>
+                        <div class="d-sm-flex d-block align-items-top justify-content-between px-3">
+                            <div class="w-50">
+                                <p class="fs-14 mb-1 fw-medium">Profile Verification</p>
+                                <p class="fs-12 mb-0 text-muted">
+                                    Choose how you'd like to verify your profile information for added security and
+                                    identity confirmation.
+                                </p>
+                            </div>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input form-checked-success"
+                                        type="checkbox"
+                                        value=""
+                                        id="email-notifications01"
+                                        checked=""
+                                    />
+                                    <label class="form-check-label" for="email-notifications01"> Email </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input form-checked-success"
+                                        type="checkbox"
+                                        value=""
+                                        id="sms-notifications01"
+                                    />
+                                    <label class="form-check-label" for="sms-notifications01"> SMS </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input form-checked-success"
+                                        type="checkbox"
+                                        value=""
+                                        id="phone-notifications"
+                                    />
+                                    <label class="form-check-label" for="phone-notifications"> Phone Call </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-sm-flex d-block align-items-top justify-content-between px-3 mt-3">
+                            <div class="w-50">
+                                <p class="fs-14 mb-1 fw-medium">Two-Factor Authentication</p>
+                                <p class="fs-12 mb-0 text-muted">
+                                    Enable two-factor authentication to protect your account from unauthorized access,
+                                    even if your password is compromised.
+                                </p>
+                            </div>
+                            <a href="javascript:void(0);" class="link-info text-decoration-underline fw-medium"
+                                >Set Up Two-Factor Authentication</a
+                            >
+                        </div>
+                        <div class="d-sm-flex d-block align-items-top justify-content-between px-3 mt-3">
+                            <div class="w-50">
+                                <p class="fs-14 mb-1 fw-medium">Password Protection</p>
+                                <p class="fs-12 mb-0 text-muted">
+                                    Enable additional verification when changing account settings to ensure the rightful
+                                    account owner is making modifications.
+                                </p>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input form-checked-success"
+                                    type="checkbox"
+                                    value=""
+                                    id="personal-details"
+                                />
+                                <label class="form-check-label" for="personal-details">
+                                    Require Identity Confirmation
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer border-top-0">
+                    <div class="p-2 bg-light d-flex gap-2 justify-content-between rounded">
+                        <button class="btn btn-danger-light btn-wave waves-effect waves-light">
+                            Deactivate Account
+                        </button>
+                        <button class="btn btn-primary btn-wave waves-effect waves-light">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>--> 
+
+
+<div class="container-fluid">
+
+    <!-- Page Header -->
+    <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+        <h1 class="page-title fw-semibold fs-18 mb-0">Permission Settings</h1>
+    </div>
+
+    <div class="row app-content">
+        <div class="col-md-7">
+
+            <div class="card custom-card">
+
+                <!-- USER TYPE TABS -->
+                <ul class="nav nav-tabs tab-style-8 scaleX rounded m-3 mb-0 profile-settings-tab gap-3">
+                    <?php $i=0; foreach($user_types as $ut): ?>
+                        <li class="nav-item">
+                            <a class="nav-link fs-16 fw-medium <?= $i==0?'active':'' ?>"
+                               data-bs-toggle="tab"
+                               href="#ut<?= $ut->ut_id ?>">
+                                <?= $ut->ut_name ?>
+                            </a>
+                        </li>
+                    <?php $i++; endforeach; ?>
+                </ul>
+
+                <!-- TAB CONTENT -->
+                <div class="p-3 tab-content">
+
+                <?php $i=0; foreach($user_types as $ut): ?>
+
+                    <div class="tab-pane fade <?= $i==0?'show active':'' ?>" 
+                         id="ut<?= $ut->ut_id ?>">
+
+                        <form class="permForm" data-ut="<?= $ut->ut_id ?>">
+
+                        <?php if(!empty($modules[$ut->ut_id])): ?>
+
+                            <?php foreach($modules[$ut->ut_id] as $mod): ?>
+
+                                <!-- MODULE HEADER -->
+                                <div class="d-flex justify-content-between align-items-center 
+                                            mb-3 mt-4 p-2 bg-primary-transparent rounded">
+
+                                    <div class="fw-semibold fs-16">
+                                        <?= $mod['name'] ?>
+                                    </div>
+
+                                </div>
+
+                                <?php if(!empty($mod['subs'])): ?>
+
+                                    <div class="row gx-4 gy-3">
+
+                                    <?php foreach($mod['subs'] as $sub):
+
+                                        $checked = (
+                                            isset($permissions[$ut->ut_id][$mod['pm_id']]) &&
+                                            in_array(
+                                                $sub['ps_id'],
+                                                $permissions[$ut->ut_id][$mod['pm_id']]
+                                            )
+                                        );
+
+                                        $onClass = $checked ? 'on' : '';
+                                    ?>
+
+                                        <div class="col-xl-4">
+
+                                            <div class="d-flex align-items-center 
+                                                        justify-content-between 
+                                                        px-3 py-2 border rounded">
+
+                                                <div>
+                                                    <p class="fs-14 mb-1 fw-medium">
+                                                        <?= $sub['ps_name'] ?>
+                                                    </p>
+                                                    <p class="fs-12 mb-0 text-muted">
+                                                        Allow access to 
+                                                        <?= strtolower($sub['ps_name']) ?>
+                                                    </p>
+                                                </div>
+
+                                                <!-- TOGGLE -->
+                                                <div class="toggle toggle-success <?= $onClass ?> permToggle"
+                                                     data-ut="<?= $ut->ut_id ?>"
+                                                     data-pm="<?= $mod['pm_id'] ?>"
+                                                     data-ps="<?= $sub['ps_id'] ?>">
+                                                    <span></span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    <?php endforeach; ?>
+
+                                    </div>
+
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+                        <?php else: ?>
+                            <div class="alert alert-warning mt-3">
+                                No modules assigned for this user type.
+                            </div>
+                        <?php endif; ?>
+
+                            <div class="text-end mt-4">
+                                <button type="button" class="btn btn-primary btn-sm savePerm">Save Permissions</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                <?php $i++; endforeach; ?>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+
+/* Toggle click */
+$(document).on("click", ".permToggle", function(){
+    $(this).toggleClass("on");
+});
+
+
+/* Save permissions */
+$(document).on("click", ".savePerm", function(){
+
+    let form  = $(this).closest(".permForm");
+    let ut_id = form.data("ut");
+
+    let permissions = [];
+
+    form.find(".permToggle.on").each(function(){
+        permissions.push({
+            pm_id: $(this).data("pm"),
+            ps_id: $(this).data("ps")
+        });
+    });
+
+    $.post("/Settings/save", {
+        ut_id: ut_id,
+        permissions: permissions
+    }, function(res){
+
+        if(res.status === "success"){
+            alert("Permissions Saved Successfully");
+        } else {
+            alert("Error saving permissions");
+        }
+
+    }, 'json');
+
+});
+
+</script>
+
