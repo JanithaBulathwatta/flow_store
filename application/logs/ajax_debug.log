@@ -1,0 +1,44 @@
+2026-02-04 22:43:46 - get_campaign_contacts_ajax called
+POST data: Array
+(
+    [campaign_id] => 1
+)
+
+GET data: Array
+(
+)
+
+SERVER: POST
+2026-02-04 22:44:00 - get_campaign_contacts_ajax called
+POST data: Array
+(
+    [campaign_id] => 1
+)
+
+GET data: Array
+(
+)
+
+SERVER: POST
+2026-02-04 22:53:55 - get_campaign_contacts_ajax called
+POST data: Array
+(
+    [campaign_id] => 21
+)
+
+GET data: Array
+(
+)
+
+SERVER: POST
+2026-02-04 22:54:46 - get_campaign_contacts_ajax called
+POST data: Array
+(
+    [campaign_id] => 20
+)
+
+GET data: Array
+(
+)
+
+SERVER: POST
